@@ -9,7 +9,7 @@ app = FastAPI()
 def parse_departmental_awards(input: str):
     """Parses the departmental awards section to extract rankings."""
     
-    section = extract_competition_results("../docs/competition_result.txt", "2. Awaited competition results:", "Individual Achievements:")
+    section = extract_competition_results("./docs/competition_result.txt", "2. Awaited competition results:", "Individual Achievements:")
     lines = section.split('\n')
     awards = {}
 
@@ -29,7 +29,7 @@ def parse_departmental_awards(input: str):
 @app.get("/parse_employee_awards/{input}")
 def parse_employee_awards(input: str):
     """Parses the employee awards section to extract rankings."""
-    section = extract_competition_results("../docs/competition_result.txt","Individual Achievements:", "Conclusion:")
+    section = extract_competition_results("./docs/competition_result.txt","Individual Achievements:", "Conclusion:")
 
     lines = section.split('\n')
     awards = {}

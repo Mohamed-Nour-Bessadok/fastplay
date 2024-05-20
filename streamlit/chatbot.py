@@ -27,7 +27,7 @@ if user_input is not None and user_input != "":
     
     try:
         response = requests.post(
-            "http://localhost:8000/chatbot", 
+            "http://agents:8000/chatbot", 
             json={"input": user_input, "chat_history": []}
         )
         response.raise_for_status()  # Raise an error for bad status codes

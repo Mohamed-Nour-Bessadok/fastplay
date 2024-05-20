@@ -43,6 +43,10 @@ def chatbot(input, chat_history):
 
 app = FastAPI()
 
+@app.get("/")
+def read_root():
+    return {"Hello": "World"}
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],

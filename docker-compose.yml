@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  agents:
+    build: 
+      context: ./agents
+    ports: 
+      - 8000:8000
+    networks:
+      - deploy_network
+    container_name: agents
+    env_file:
+      - .env
+
+  streamlit:
+    build:
+      context: ./streamlit
+    depends_on:
+      - agents
+    ports: 
+      - 8501:8501
+    networks:
+      - deploy_network
+    container_name: streamlit
+    env_file:
+      - .env
+
+networks:
+  deploy_network:
+    driver: bridge
